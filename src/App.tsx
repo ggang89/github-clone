@@ -7,16 +7,18 @@ export default function App() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    console.dir(form);
     const id = form.elements.namedItem("username") as HTMLInputElement;
     console.log(id.value);
+    if (id.value.length < 3) {
+      alert("username은 3글자 이상이어야 합니다.")
+    } 
   };
   return (
     <form onSubmit={onSubmit}>
       <TextField
         name="username"
         id="outlined-basic"
-        label="Outlined"
+        label="to search username"
         variant="outlined"
       />
       <Button variant="contained" type="submit">
