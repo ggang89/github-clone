@@ -6,7 +6,7 @@ export function Layout() {
     <>
     
       <CssBaseline />
-      
+      <h1>2</h1>
       <Outlet />
     </>
   );

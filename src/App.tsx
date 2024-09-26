@@ -30,7 +30,6 @@ export default function App() {
   };
   const action = (
     <React.Fragment>
-     
       <IconButton
         size="small"
         aria-label="close"
