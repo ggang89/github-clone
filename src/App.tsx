@@ -1,10 +1,15 @@
+import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+
 export default function App() {
-  const [showing, setIsShowing] = useState({isOpen: false, text: ""});
+  const [showing, setIsShowing] = useState({ isOpen: false, text: "" });
+
   //console.dir(window);
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -12,7 +17,7 @@ export default function App() {
     const id = form.elements.namedItem("username") as HTMLInputElement;
     console.log(id.value);
     if (id.value.length < 3) {
-      setIsShowing({isOpen: true, text: "세글자 이상"});
+      setIsShowing({ isOpen: true, text: "세글자 이상 입력하세요" });
       return;
     }
     if (id.value.length > 10) {
@@ -20,12 +25,31 @@ export default function App() {
       return;
     }
   };
-  const handleClick = () => {};
+  const handleClose = () => {
+    setIsShowing({ isOpen: false, text: "" });
+  };
+  const action = (
+    <React.Fragment>
+     
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+      <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+  const handleClick = () => { };
+  
   return (
     <>
       {showing.isOpen && (
         <Snackbar open={true} autoHideDuration={6000}>
-          <Alert severity="warning">{ showing.text}</Alert>
+          <Alert severity="warning" onClose={handleClose} action={action}>
+            {showing.text}
+          </Alert>
         </Snackbar>
       )}
       <form onSubmit={onSubmit}>
