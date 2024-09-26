@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { useStore } from "../use-alert";
 
 
 export default function Form() {
@@ -11,6 +12,8 @@ export default function Form() {
    console.log(id.value);
    if (id.value.length < 3) {
      //setIsShowing({ isOpen: true, text: "세글자 이상 입력하세요" });
+     setError("3글자이상 입력하세요") 
+       
      return;
    }
    if (id.value.length > 10) {
@@ -18,7 +21,7 @@ export default function Form() {
      return;
    }
  };
- 
+const setError = useStore((state)=>(state.setError))
   return (
     <>
       <form onSubmit={onSubmit} >
