@@ -38,7 +38,7 @@ export default function App() {
           </Alert>
         </Snackbar>
       )}
-      <Form />
+    
     </>
   );
 }
