@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import App from './App.tsx'
 import { Layout } from './components/layout.tsx'
-
+import Detail from './components/datail.tsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,6 +13,10 @@ const router = createBrowserRouter([
         index: true,
         element: <App />,
       },
+      {
+        path: "detail",
+        element:<Detail/>
+      }
     ],
   },
 ]);

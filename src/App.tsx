@@ -5,7 +5,7 @@ import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { Form } from "react-router-dom";
+import Form from "./components/form";
 
 export default function App() {
   const [showing, setIsShowing] = useState({ isOpen: false, text: "" });
@@ -38,9 +38,7 @@ export default function App() {
           </Alert>
         </Snackbar>
       )}
-      <Form
-        onSubmit={onSubmit}
-        handleClick={handleClick} />
+      <Form />
     </>
   );
 }
