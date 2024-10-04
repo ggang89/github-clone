@@ -4,6 +4,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import App from './App.tsx'
 import { Layout } from './components/layout.tsx'
 import Detail from './components/datail.tsx'
+import "./index.css"
 const router = createBrowserRouter([
   {
     path: "/",

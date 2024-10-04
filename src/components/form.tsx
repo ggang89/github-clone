@@ -24,15 +24,23 @@ export default function Form() {
 const setError = useStore((state)=>(state.setError))
   return (
     <>
-      <form onSubmit={onSubmit} >
+      <form
+        className="bg-slate-400 w-[600px] h-[300px] gap-2 m-auto flex items-stretch "
+        onSubmit={onSubmit}
+      >
         <TextField
+          className="flex-1"
           name="username"
           id="outlined-basic"
           label="to search username"
           variant="outlined"
         />
 
-        <Button variant="contained" type="submit" >
+        <Button
+          className="w-[80px] h-[53px] self-start "
+          variant="contained"
+          type="submit"
+        >
           버튼
         </Button>
       </form>
